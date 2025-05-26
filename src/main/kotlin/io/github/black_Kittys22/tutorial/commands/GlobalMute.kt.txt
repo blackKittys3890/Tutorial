@@ -1,0 +1,95 @@
+package io.github.black_Kittys22.tutorial.commands
+
+import dev.jorel.commandapi.executors.CommandArguments
+import io.papermc.paper.event.player.AsyncChatEvent
+import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder
+import org.bukkit.Bukkit
+import org.bukkit.command.CommandSender
+import yv.tils.smp.YVtils
+import yv.tils.smp.mods.discord.sync.chatSync.SyncChats
+import yv.tils.smp.utils.configs.language.LangStrings
+import yv.tils.smp.utils.configs.language.Language
+import yv.tils.smp.utils.internalAPI.Placeholder
+import yv.tils.smp.utils.internalAPI.Vars
+
+class GlobalMute {
+    companion object {
+        var globalMute: Boolean = false
+    }
+
+    var oldState: Boolean = false
+
+    fun globalMute(sender: CommandSender, args: CommandArguments? = null) {
+        val state = if (args?.get(0) == null) {
+            "toggle"
+        } else {
+            args[0].toString()
+        }
+
+        when (state) {
+            "toggle" -> {
+                oldState = globalMute
+                globalMute = !globalMute
+
+                SyncChats.active = !globalMute
+            }
+
+            "true" -> {
+                oldState = globalMute
+                globalMute = true
+
+                SyncChats.active = false
+            }
+
+            "false" -> {
+                oldState = globalMute
+                globalMute = false
+
+                SyncChats.active = true
+            }
+        }
+
+        globalAnnouncment(state)
+        senderAnnouncement(sender, state)
+
+    }
+
+    private fun globalAnnouncment(event: String) {
+        if (oldState == globalMute) {
+            return
+        }
+
+        for (player in Bukkit.getOnlinePlayers()) {
+            if (globalMute) {
+                player.sendMessage(
+                    Placeholder().replace(
+                        Language().getMessage(
+                            player.uniqueId,
+                            LangStrings.GLOBALMUTE_ENABLE_ANNOUNCEMENT
+                        ),
+                        listOf("prefix"),
+                        listOf(Vars().prefix)
+                    )
+                )
+            } else {
+                player.sendMessage(
+                    Placeholder().replace(
+                        Language().getMessage(
+                            player.uniqueId,
+                            LangStrings.GLOBALMUTE_DISABLE_ANNOUNCEMENT
+                        ),
+                        listOf("prefix"),
+                        listOf(Vars().prefix)
+                    )
+                )
+            }
+        }
+
+        if (globalMute) {
+            YVtils.instance.server.consoleSender.sendMessage(Language().getMessage(LangStrings.GLOBALMUTE_ENABLE_ANNOUNCEMENT))
+        } else {
+            YVtils.instance.server.consoleSender.sendMessage(Language().getMessage(LangStrings.GLOBALMUTE_DISABLE_ANNOUNCEMENT))
+        }
+    }
+    }
+}

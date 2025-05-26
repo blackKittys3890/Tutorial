@@ -1,0 +1,11 @@
+name: Tutorial-Project
+main: io.github.black_Kittys22.tutorial.Tutorial
+version: 1.0.0
+
+author: black_Kittys
+description: Ein Plugin von black_Kittys einer Katze (lol)
+
+libraries:
+  - "de.miraculixx:kpaper:1.1.2"
+  - "dev.jorel:commandapi-bukkit-shade:10.0.0"
+  - "dev.jorel:commandapi-bukkit-kotlin:10.0.0"
