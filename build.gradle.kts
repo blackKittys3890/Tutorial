@@ -30,7 +30,6 @@ dependencies {
     implementation("de.miraculixx", "kpaper", "1.1.2")
     implementation("dev.jorel:commandapi-bukkit-shade-mojang-mapped:10.0.1")
     implementation("dev.jorel:commandapi-bukkit-kotlin:10.0.1")
-    implementation("org.reflections:reflections:0.10.2")
 
 }
 

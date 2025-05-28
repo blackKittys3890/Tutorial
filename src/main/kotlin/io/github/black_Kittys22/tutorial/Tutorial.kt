@@ -5,7 +5,6 @@ import dev.jorel.commandapi.CommandAPI
 import dev.jorel.commandapi.CommandAPIBukkitConfig
 import io.github.black_Kittys22.tutorial.commands.Timer
 import io.github.black_Kittys22.tutorial.commands.FirstCommand
-import io.github.black_Kittys22.tutorial.commands.MobsToBlocks
 import io.github.black_Kittys22.tutorial.commands.TimerCommand
 import net.kyori.adventure.text.Component
 
@@ -23,11 +22,11 @@ class Tutorial : KPaper() {
         Timer
         FirstCommand()
         TimerCommand()
-        MobsToBlocks()
+        Circle()
     }
 
 
-    }
+
 
     override fun shutdown() {
         CommandAPI.onDisable()
