@@ -1,4 +1,4 @@
-package io.github.black_Kittys22.tutorial.commands
+package io.github.black_Kittys22.tutorial
 
 import de.miraculixx.kpaper.extensions.broadcast
 import de.miraculixx.kpaper.extensions.bukkit.cmp

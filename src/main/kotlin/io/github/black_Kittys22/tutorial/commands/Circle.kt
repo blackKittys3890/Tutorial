@@ -1,4 +1,4 @@
-package io.github.black_Kittys22.tutorial
+package io.github.black_Kittys22.tutorial.commands
 
 import de.miraculixx.kpaper.extensions.bukkit.cmp
 import dev.jorel.commandapi.arguments.LocationType
@@ -8,6 +8,7 @@ import dev.jorel.commandapi.kotlindsl.integerArgument
 import dev.jorel.commandapi.kotlindsl.locationArgument
 import dev.jorel.commandapi.kotlindsl.playerExecutor
 import org.bukkit.Location
+import org.bukkit.block.data.BlockData
 
 class Circle {
     val command = commandTree("circle") {
@@ -20,7 +21,7 @@ class Circle {
 
                         val loc = if (hasLocation) args[0] as Location else player.location
                         val radius = if (hasLocation) args[1] as Int else args[0] as Int
-                        val blockData = if (hasLocation) args[2] as org.bukkit.block.data.BlockData else args[1] as org.bukkit.block.data.BlockData
+                        val blockData = if (hasLocation) args[2] as BlockData else args[1] as BlockData
                         val material = blockData.material
 
                         val world = loc.world ?: run {
