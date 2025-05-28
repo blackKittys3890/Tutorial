@@ -23,6 +23,7 @@ class Tutorial : KPaper() {
         // Register commands and features
         DamageEvent
         Timer
+        CustomTablist()
         FirstCommand()
         TimerCommand()
         Circle()
@@ -38,13 +39,13 @@ class Tutorial : KPaper() {
             # This plugin includes:
             # – A timer in the colors of BastiGHG ZickZack V4
             # – A message when someone takes damage
+            # - A custom Tablist
             # – /test hey        → You receive a hey
             # – /test goldify    → Turns the selected block into gold
             # – /test select     → Choose between two options
             # – /test number     → You can enter a number
             # – /test text       → You can enter text
             # – /test selector   → You can use selectors like @a, @p
-            # – /test types      → Spawns a specific object
             # – /circle          → Creates a circle with given radius and block
         """.trimIndent()
 
