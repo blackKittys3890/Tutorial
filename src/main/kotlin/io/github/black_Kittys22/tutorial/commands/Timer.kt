@@ -1,4 +1,4 @@
-package io.github.black_Kittys22.tutorial
+package io.github.black_Kittys22.tutorial.commands
 
 import de.miraculixx.kpaper.extensions.broadcast
 import de.miraculixx.kpaper.extensions.bukkit.cmp
@@ -12,7 +12,7 @@ import kotlin.time.Duration.Companion.seconds
 
 object Timer {
     private val miniMessages = MiniMessage.miniMessage()
-    private var time = Duration.ZERO
+    private var time = Duration.Companion.ZERO
     var paused = true
         set(value) {
             if (value) broadcast(cmp("Der Timer wurde ") + cmp("pausiert", NamedTextColor.DARK_RED, true))

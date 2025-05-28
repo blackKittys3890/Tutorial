@@ -9,3 +9,4 @@ libraries:
   - "de.miraculixx:kpaper:1.1.2"
   - "dev.jorel:commandapi-bukkit-shade:10.0.0"
   - "dev.jorel:commandapi-bukkit-kotlin:10.0.0"
+  - "org.reflections:reflections:0.10.2"

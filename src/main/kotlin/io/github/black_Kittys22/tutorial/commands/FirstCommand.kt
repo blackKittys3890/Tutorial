@@ -4,12 +4,27 @@ import de.miraculixx.kpaper.extensions.bukkit.cmp
 import dev.jorel.commandapi.StringTooltip
 import dev.jorel.commandapi.arguments.ArgumentSuggestions
 import dev.jorel.commandapi.arguments.LocationType
-import dev.jorel.commandapi.kotlindsl.*
+import dev.jorel.commandapi.kotlindsl.anyExecutor
+import dev.jorel.commandapi.kotlindsl.commandTree
+import dev.jorel.commandapi.kotlindsl.doubleArgument
+import dev.jorel.commandapi.kotlindsl.entitySelectorArgumentManyEntities
+import dev.jorel.commandapi.kotlindsl.entitySelectorArgumentOnePlayer
+import dev.jorel.commandapi.kotlindsl.entityTypeArgument
+import dev.jorel.commandapi.kotlindsl.greedyStringArgument
+import dev.jorel.commandapi.kotlindsl.integerArgument
+import dev.jorel.commandapi.kotlindsl.itemStackArgument
+import dev.jorel.commandapi.kotlindsl.literalArgument
+import dev.jorel.commandapi.kotlindsl.locationArgument
+import dev.jorel.commandapi.kotlindsl.playerExecutor
+import dev.jorel.commandapi.kotlindsl.soundArgument
+import dev.jorel.commandapi.kotlindsl.stringArgument
+import dev.jorel.commandapi.kotlindsl.textArgument
 import org.bukkit.Location
 import org.bukkit.Material
 import kotlin.jvm.optionals.getOrNull
 
 class FirstCommand {
+
     private val someList = listOf("a", "b", "c")
 
     val command = commandTree("test") {
