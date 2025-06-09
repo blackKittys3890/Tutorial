@@ -62,12 +62,12 @@ tasks.withType<KotlinCompile> {
 }
 
 tasks.shadowJar {
-    archiveBaseName.set("Tutorial")
+    archiveBaseName.set("Modcraft")
     archiveVersion.set(version.toString())
     archiveClassifier.set("")
-    archiveFileName.set("Tutorial_v${version}.jar")
+    archiveFileName.set("Modcraft_V${version}.jar")
 
     manifest {
-        attributes["Main-Class"] = "io.github.black_Kittys22.tutorial.Tutorial"
+        attributes["Main-Class"] = "io.github.black_Kittys22.modcraft.Modcraft"
     }
 }
